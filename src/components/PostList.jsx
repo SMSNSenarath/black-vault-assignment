@@ -31,9 +31,24 @@ function PostList() {
   return (
     <div>
       {/* Create a Post */}
-      <div>
+      <div className="container">
+        <h1>Create a New Post</h1>
         <form>
           <label htmlFor="userId">User Id</label>
+          <div class="input-group m-3 ">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="User Id"
+              aria-label="UserId"
+              aria-describedby="userId"
+              value={userId}
+              onChange={(e) => {
+                setUserId(e.target.value);
+              }}
+            />
+          </div>
+          {/* <label htmlFor="userId">User Id</label>
           <input
             type="text"
             id="userId"
@@ -41,46 +56,77 @@ function PostList() {
             onChange={(e) => {
               setUserId(e.target.value);
             }}
-          />
+          /> */}
           <label htmlFor="id">Id</label>
-          <input
-            type="text"
-            id="id"
-            value={id}
-            onChange={(e) => {
-              setId(e.target.value);
-            }}
-          />
+          <div class="input-group m-3 ">
+            <input
+              type="text"
+              id="id"
+              class="form-control"
+              placeholder="Comment Id"
+              aria-label="Id"
+              aria-describedby="id"
+              value={id}
+              onChange={(e) => {
+                setId(e.target.value);
+              }}
+            />
+          </div>
+
           <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => {
-              setTitle(e.target.value);
-            }}
-          />
+          <div className="input-group m-3">
+            {" "}
+            <input
+              type="text"
+              id="title"
+              class="form-control"
+              placeholder="Title"
+              aria-label="Title"
+              aria-describedby="title"
+              value={title}
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            />
+          </div>
+
           <label htmlFor="body">Body</label>
-          <input
+          <div class="input-group m-3">
+            <textarea
+              class="form-control"
+              aria-label="With textarea"
+              id="body"
+              value={body}
+              onChange={(e) => {
+                setBody(e.target.value);
+              }}
+            ></textarea>
+          </div>
+          {/* <input
             type="text"
             id="body"
             value={body}
             onChange={(e) => {
               setBody(e.target.value);
             }}
-          />
-          <button onClick={handleSubmit}>Submit</button>
+          /> */}
+          <button type="button" class="btn btn-success" onClick={handleSubmit}>
+            Submit
+          </button>
         </form>
       </div>
-      <div>
-        <ul>
-          {posts.map((post, i) => (
-            <li key={post.id}>
-              <Link to={"/post/" + post.id}>{post.title}</Link>
-              {/* <h1>{post.title}</h1> */}
-            </li>
-          ))}
-        </ul>
+      <div className="container">
+        <div className="m-3">
+          <h1>Posts Lists</h1>
+          <ul>
+            {posts.map((post, i) => (
+              <li key={post.id}>
+                <Link to={"/post/" + post.id}>{post.title}</Link>
+                {/* <h1>{post.title}</h1> */}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
