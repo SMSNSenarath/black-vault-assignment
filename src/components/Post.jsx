@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import "../styles/Post.css";
 
 function Post() {
   const [post, setPost] = useState({});
@@ -48,7 +50,7 @@ function Post() {
       {/* Post Details */}
       <div className="m-3">
         <div className="container">
-          <h1>{post.title}</h1>
+          <h1 id="post-title">{post.title}</h1>
           <span className="fw-light">Post Id: {post.id}</span>
 
           <h5>{post.body}</h5>
@@ -68,8 +70,17 @@ function Post() {
             </li>
           ))}
         </ul>
-        <button className="btn btn-info" onClick={() => setIsUpdate(!isUpdate)}>
+
+        <button
+          className="btn btn-info me-3"
+          onClick={() => setIsUpdate(!isUpdate)}
+        >
           Update Post
+        </button>
+        <button className="btn btn-warning">
+          <Link to="/" id="backbtn">
+            Back
+          </Link>
         </button>
       </div>
 
