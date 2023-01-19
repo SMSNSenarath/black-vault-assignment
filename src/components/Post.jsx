@@ -40,6 +40,7 @@ function Post() {
     };
     // push updatedPost to the frontend
     setPost(updatedPost);
+    setIsUpdate(!isUpdate);
   };
 
   return (
@@ -85,7 +86,7 @@ function Post() {
                   type="text"
                   id="title"
                   class="form-control"
-                  placeholder="Title"
+                  placeholder={post.title}
                   aria-label="Title"
                   aria-describedby="title"
                   value={title}
@@ -100,6 +101,7 @@ function Post() {
                 <textarea
                   class="form-control"
                   aria-label="With textarea"
+                  placeholder={post.body}
                   id="body"
                   value={body}
                   onChange={(e) => {
