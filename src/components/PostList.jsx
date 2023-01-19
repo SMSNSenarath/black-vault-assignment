@@ -118,9 +118,9 @@ function PostList() {
       <div className="container">
         <div className="m-3">
           <h1>Posts Lists</h1>
-          <ul>
+          <ul className="list-group list-group-flush">
             {posts.map((post, i) => (
-              <li key={post.id}>
+              <li className="list-group-item" key={post.id}>
                 <Link to={"/post/" + post.id}>{post.title}</Link>
                 {/* <h1>{post.title}</h1> */}
               </li>
