@@ -18,7 +18,7 @@ function PostList() {
       <ul>
         {posts.map((post, i) => (
           <li key={post.id}>
-            <Link to={post.id}>{post.title}</Link>
+            <Link to={"/post/" + post.id}>{post.title}</Link>
             {/* <h1>{post.title}</h1> */}
           </li>
         ))}
